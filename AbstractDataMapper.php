@@ -117,12 +117,14 @@ abstract class AbstractDataMapper implements DataMapperInterface
 		// Handling conditions
 		if (!is_array($conditions) && !is_object($conditions))
 		{
-			$conditions = array();
+			$cond = array();
 
 			foreach ((array) $this->getPrimaryKey() as $field)
 			{
-				$conditions[$field] = $conditions;
+				$cond[$field] = $conditions;
 			}
+
+			$conditions = $cond;
 		}
 
 		$conditions = (array) $conditions;
@@ -188,7 +190,7 @@ abstract class AbstractDataMapper implements DataMapperInterface
 			return $dataset[0];
 		}
 
-		return new $this->datasetClass;
+		return new $this->dataClass;
 	}
 
 	/**
@@ -338,12 +340,14 @@ abstract class AbstractDataMapper implements DataMapperInterface
 		// Handling conditions
 		if (!is_array($conditions) && !is_object($conditions))
 		{
-			$conditions = array();
+			$cond = array();
 
 			foreach ((array) $this->getPrimaryKey() as $field)
 			{
-				$conditions[$field] = $conditions;
+				$cond[$field] = $conditions;
 			}
+
+			$conditions = $cond;
 		}
 
 		return $this->doFlush($dataset, (array) $conditions);
@@ -439,12 +443,14 @@ abstract class AbstractDataMapper implements DataMapperInterface
 		// Handling conditions
 		if (!is_array($conditions) && !is_object($conditions))
 		{
-			$conditions = array();
+			$cond = array();
 
 			foreach ((array) $this->getPrimaryKey() as $field)
 			{
-				$conditions[$field] = $conditions;
+				$cond[$field] = $conditions;
 			}
+
+			$conditions = $cond;
 		}
 
 		$conditions = (array) $conditions;
