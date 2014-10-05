@@ -1,5 +1,5 @@
 <?php
-namespace Windwalker\DataMapper\Tests;
+namespace Windwalker\DataMapper\Test;
 
 use Joomla\Utilities\ArrayHelper;
 use Windwalker\Compare\Compare;
